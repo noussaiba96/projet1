@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+
+
+if [ -z $1 ]
+then echo "Expected arguments,please check the help : initdev -help"
+
+else mkdir $1 ; touch $1/Makefile ;
+ for i in $2 $3 $4
+     do
+         if [ "$i" = "C" ]
+            then cp sources/main.c $1 ; echo "0" ;
+       elif  [ "$i" = "Py" ]
+            then cp sourse/main.py $1 ; echo "0" ;
+        elif [ "$i" = "CPP" ]
+            then cp sources/main.cpp $1 ; echo "0" ;
+        elif [ "$i" = "BEAMER" ]
+            then cp sources/main.beamer.tex $1 ; echo "0" ;
+        elif [ "$i" = "Latex" ]
+            then cp sources/main.tex $1 ; echo "0" ;
+          fi
+
+
+        if [ "$i" = "MIT" ]
+            then cp licenses/MIT $1;echo "0";
+        elif [ "$i" = "GPL" ]
+            then cp licenses/GPL $1;echo "0";
+        fi
+     done
+fi
